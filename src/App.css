@@ -1,0 +1,119 @@
+@layer layout {
+	main {
+		padding: var(--spacing-md) var(--spacing-sm);
+		display: flex;
+		flex-direction: column;
+		justify-items: center;
+		justify-content: center;
+		margin-inline: 12px;
+	}
+
+	.profile-container {
+		display: flex;
+	}
+
+	.introduction {
+		display: flex;
+		flex-direction: column;
+	}
+
+	@media screen and (max-width: 768px) {
+		.introduction {
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.profile-container {
+			flex-direction: column;
+			align-items: center;
+		}
+	}
+}
+
+@layer utilities {
+	.container {
+		max-width: var(--max-width-xl);
+		margin-inline: auto;
+		padding-inline: var(--spacing-sm);
+
+		&[data-display="flex"] {
+			display: flex;
+		}
+	}
+
+	.padding-inline {
+		padding-inline: var(--spacing-sm);
+
+		&[data-size="sm"] {
+			padding-inline: var(--spacing-sm);
+		}
+
+		&[data-size="md"] {
+			padding-inline: var(--spacing-md);
+		}
+	}
+
+	.bold {
+		font-weight: var(--fw-bold);
+	}
+
+	.flex {
+		display: flex;
+	}
+
+	.font-size-heading {
+		font-size: var(--fs-800);
+	}
+
+	.font-size-subheading {
+		font-size: var(--fs-700);
+	}
+
+	.fs-600 {
+		font-size: var(--fs-600);
+	}
+
+	.img-border-radius {
+		border-radius: var(--border-radius-img);
+	}
+
+	.flow > * + * {
+		margin-block-start: var(--flow-spacer, 1em);
+
+		&[data-spacing="small"] {
+			--flow-spacer: 0.5em;
+		}
+	}
+
+	.justify-content-around {
+		justify-content: space-around;
+	}
+
+	.justify-content-between {
+		justify-content: space-between;
+	}
+
+	.justify-content-evenly {
+		justify-content: space-evenly;
+	}
+
+	.btn-success {
+		background-color: var(--clr-success);
+		color: var(--clr-background);
+		padding: var(--spacing-xs) var(--spacing-sm);
+	}
+	.btn-success:hover {
+		background-color: var(--clr-success-light);
+	}
+
+	.btn-primary {
+		background-color: var(--clr-primary);
+		color: var(--clr-background);
+		padding: var(--spacing-xs) var(--spacing-sm);
+	}
+
+	.btn {
+		color: var(--clr-text);
+		padding: var(--spacing-xs) var(--spacing-sm);
+	}
+}
