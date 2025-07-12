@@ -7,13 +7,11 @@ import BlogCard from "./components/CardBlog/Card";
 function App() {
   const posts = getAllPosts();
 
-  console.log("posts: ", posts);
-
   return (
     <ErrorBoundary fallback={<p>Something bad happened!</p>}>
       <main className="relative text-white min-h-screen w-screen">
         <Navbar title={"Daniel Anugerah"} />
-        <section className="container flex flex-col items-center justify-center h-screen flow">
+        <section className="flex flex-col items-center justify-center h-screen w-screen flow">
           <img
             src={haikei}
             alt="Haikei Background"
@@ -37,16 +35,16 @@ function App() {
 
         <section className="flex flex-col justify-start py-12 px-6 bg-white text-black flow">
           <h1 className="text-3xl font-bold mb-12">Recent Posts</h1>
-
           <div className="grid gap-6 md:grid-cols-2 gap">
-            {posts.map((post) =>
-              BlogCard({
-                title: post.title,
-                description: post.excerpt,
-                date: post.date,
-                imageUrl: post.image_url || "https://via.placeholder.com/150",
-              }),
-            )}
+            {posts.map((post) => (
+              <BlogCard
+                key={post.slug}
+                title={post.title}
+                description={post.excerpt}
+                date={post.date}
+                imageUrl={post.image_url || "https://via.placeholder.com/150"}
+              />
+            ))}
           </div>
         </section>
       </main>
@@ -55,3 +53,4 @@ function App() {
 }
 
 export default App;
+

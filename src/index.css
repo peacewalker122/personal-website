@@ -150,6 +150,7 @@
 		color: var(--clr-text);
 		background-color: var(--clr-background);
 
+		scroll-behavior: smooth;
 		/* max-width: var(--max-width-xl); */
 	}
 

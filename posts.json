@@ -5,7 +5,7 @@
 		"excerpt": "This is a test post to check rendering.",
 		"date": "1965-10-01",
 		"path": "posts/understanding-javascript-closures.md",
-		"image_url": "https://forum.paradoxplaza.com/forum/attachments/no-step-back-loading-screen-no-1-png.778120/"
+		"image_url": "https://user-images.githubusercontent.com/12455284/79303872-f5f43e00-7f2a-11ea-8bc4-77c1613be26e.png"
 	},
 	{
 		"title": "Understanding JavaScript Closures",
@@ -13,6 +13,6 @@
 		"excerpt": "A deep dive into closures in JavaScript.",
 		"date": "2023-10-01",
 		"path": "posts/understanding-javascript-closures.md",
-		"image_url": null
+		"image_url": "https://user-images.githubusercontent.com/38197656/87902185-f9fe9300-ca26-11ea-8354-3777caef5602.png"
 	}
 ]
