@@ -8,12 +8,12 @@ import postFiles from "../../posts.json";
 // This allows us to easily access metadata and content without additional processing.
 
 export interface Post {
-  title: string;
-  slug: string;
-  date: string;
-  excerpt: string;
-  path: string;
-  image_url?: string;
+	title: string;
+	slug: string;
+	date: string;
+	excerpt: string;
+	path: string;
+	image_url?: string;
 }
 
 // export function getAllPosts() {
@@ -35,7 +35,7 @@ export interface Post {
 
 export function getAllPosts(): Post[] {
 	return postFiles.map((post) => ({
-		slug: post.slug,
+		slug: "",
 		title: post.title,
 		date: post.date,
 		excerpt: post.excerpt,
@@ -48,3 +48,4 @@ export function getPostBySlug(slug: string): Post | undefined {
 	const posts = getAllPosts();
 	return posts.find((p) => p.slug === slug);
 }
+
