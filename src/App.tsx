@@ -21,8 +21,10 @@ function App() {
             <h1 className="text-xl sm:text-4xl font-bold text-black">
               Hi, I'm Daniel Anugerah
             </h1>
-            <p className="text-md sm:text-lg text-black mt-8 ">
-              I'm no one, man and I don't know what I'm doing.
+            <p className="text-md sm:text-lg text-black mt-4 mx-8 text-pretty items-center">
+              A software engineer with a passion for building scalable and
+              efficient systems. I specialize in backend development, DevOps,
+              and creating developer-friendly experiences.
             </p>
             <button
               type="button"
@@ -36,10 +38,20 @@ function App() {
         <section className="flex flex-col justify-start py-6 px-6 bg-gray-100 text-black flow">
           <h1 className="text-3xl font-bold ">About me</h1>
           <p className="text-lg">
-            I wrote my first line of HTML in primary school—​a one-page
-            confession site that actually won over my crush. Ever since, the web
-            has been my favorite superpower: code something today, share it with
-            the world tomorrow.
+            I start my coding journey at primary school—a one page HTML to
+            confess my feelings that actually won over my crush. Later on I'm
+            not touching the keyboard anymore and made the keyboard coverup on
+            pile of dust. The "serious" stuff started in high school—during a
+            covid pandemic, where every activity was online and I don't know
+            what I'm doing, I started to dive to this world of programming,
+            world of stream of bits and bytes, word of 1s and 0s. The first
+            "serious" project I remember was a social-media backend built in GO
+            and with that project I started to kick off my career as a software
+            engineer. I remember the feeling of getting my first interview &
+            test task, the thrill of writing my first production code, and the
+            satisfaction of seeing my work deployed live. It was a whirlwind of
+            learning, debugging, and late-night coding sessions fueled by coffee
+            and sheer determination.
           </p>
 
           <p className="text-lg mt-4">
