@@ -9,7 +9,7 @@
 		"lint": "eslint .",
 		"typecheck": "tsc --noEmit",
 		"preview": "vite preview",
-		"deploy": "gh-pages -d dist"
+		"deploy": "tsc && vite build"
 	},
 	"dependencies": {
 		"@tailwindcss/vite": "^4.1.8",
