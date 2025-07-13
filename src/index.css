@@ -26,7 +26,7 @@
 	blockquote,
 	dl,
 	dd {
-		margin: 0;
+		margin: 1;
 	}
 
 	/* https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html */

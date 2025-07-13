@@ -10,7 +10,7 @@ function Navbar({ title }: NavbarProps) {
 
   return (
     <nav className="flex flex-row sm:justify-between justify-center w-screen overflow-hidden p-6 text-black fixed">
-      <h1 className="font-bold text-2xl">{title}</h1>
+      <h1 className="font-bold text-2xl m-0">{title}</h1>
 
       <ul className="hidden sm:flex flex-row gap-4 text-lg font-bold">
         <li>Home</li>
@@ -33,7 +33,7 @@ function Navbar({ title }: NavbarProps) {
       <section
         className="sm:hidden fixed w-screen h-full transform transition-transform duration-300 ease-in-out z-10 text-black"
         style={{
-          transform: isOpen ? "translateX(0)" : "translateX(100%)",
+          transform: isOpen ? "translateX(40%)" : "translateX(100%)",
         }}
       >
         <ul className="sm:hidden top-0 right-0 bg-white w-3/4 h-screen flex flex-col items-start text-xl font-bold transform transition-transform duration-300 ease-in-out">
