@@ -4,7 +4,6 @@ import { useTheme } from "../hooks/useTheme";
 import { NavBar } from "./NavBar";
 import { SettingsPanel } from "./SettingsPanel";
 import { PostCard } from "./PostCard";
-import { Footer } from "./Footer";
 import { getAllPosts } from "../utils/posts";
 import type { Post } from "../utils/posts";
 
@@ -42,8 +41,11 @@ export function BlogIndex() {
     setLoadingMore(true);
     setTimeout(() => {
       const currentLength = displayedPosts.length;
-      const nextPosts = posts.slice(currentLength, currentLength + POSTS_PER_PAGE);
-      setDisplayedPosts(prev => [...prev, ...nextPosts]);
+      const nextPosts = posts.slice(
+        currentLength,
+        currentLength + POSTS_PER_PAGE,
+      );
+      setDisplayedPosts((prev) => [...prev, ...nextPosts]);
       setHasMore(currentLength + nextPosts.length < posts.length);
       setLoadingMore(false);
     }, 500); // Simulate loading delay
@@ -51,16 +53,16 @@ export function BlogIndex() {
 
   const handleScroll = useCallback(() => {
     if (
-      window.innerHeight + document.documentElement.scrollTop
-      >= document.documentElement.offsetHeight - 1000
+      window.innerHeight + document.documentElement.scrollTop >=
+      document.documentElement.offsetHeight - 1000
     ) {
       loadMorePosts();
     }
   }, [loadMorePosts]);
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
 
   const handlePostClick = (slug: string) => {
@@ -83,7 +85,8 @@ export function BlogIndex() {
     <div
       className="min-h-screen transition-colors duration-300"
       style={{
-        backgroundColor: theme === "dark" ? "var(--bg-primary)" : "var(--bg-primary)",
+        backgroundColor:
+          theme === "dark" ? "var(--bg-primary)" : "var(--bg-primary)",
       }}
     >
       <NavBar title="Personal Blog" />
@@ -98,7 +101,10 @@ export function BlogIndex() {
               ${theme === "dark" ? "text-neutral-100" : "text-neutral-900"}
             `}
             style={{
-              color: theme === "dark" ? "var(--text-primary)" : "var(--text-primary)",
+              color:
+                theme === "dark"
+                  ? "var(--text-primary)"
+                  : "var(--text-primary)",
             }}
           >
             Welcome to My Blog
@@ -109,10 +115,14 @@ export function BlogIndex() {
               ${theme === "dark" ? "text-neutral-300" : "text-neutral-700"}
             `}
             style={{
-              color: theme === "dark" ? "var(--text-secondary)" : "var(--text-secondary)",
+              color:
+                theme === "dark"
+                  ? "var(--text-secondary)"
+                  : "var(--text-secondary)",
             }}
           >
-            Thoughts on web development, React patterns, and building great user experiences.
+            Thoughts on web development, React patterns, and building great user
+            experiences.
           </p>
         </div>
       </section>
@@ -145,7 +155,10 @@ export function BlogIndex() {
               <div
                 className="border-t"
                 style={{
-                  borderTopColor: theme === "dark" ? "var(--border-subtle)" : "var(--border-subtle)",
+                  borderTopColor:
+                    theme === "dark"
+                      ? "var(--border-subtle)"
+                      : "var(--border-subtle)",
                 }}
               >
                 <p
@@ -161,9 +174,7 @@ export function BlogIndex() {
           )}
         </div>
       </main>
-
-      {/* Footer Section - 10% of viewport */}
-      <Footer />
     </div>
   );
 }
+

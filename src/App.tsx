@@ -3,7 +3,6 @@ import { NavBar } from "./components/NavBar";
 import { SettingsPanel } from "./components/SettingsPanel";
 import { ArticleContent } from "./components/ArticleContent";
 import { BlogIndex } from "./components/BlogIndex";
-import "./App.css";
 import {
   BrowserRouter as Router,
   Routes,
