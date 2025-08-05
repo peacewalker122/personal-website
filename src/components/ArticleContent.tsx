@@ -61,8 +61,6 @@ export function ArticleContent({ article }: ArticleContentProps) {
               ${theme === "dark" ? "text-neutral-400" : "text-neutral-600"}
             `}
             >
-              <span className="font-medium">{article.author}</span>
-              <span className="w-1 h-1 rounded-full bg-current opacity-60" />
               <time dateTime={article.date}>{article.date}</time>
               <span className="w-1 h-1 rounded-full bg-current opacity-60" />
               <span>{article.readingTime}</span>

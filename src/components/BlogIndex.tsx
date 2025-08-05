@@ -121,8 +121,7 @@ export function BlogIndex() {
                   : "var(--text-secondary)",
             }}
           >
-            Thoughts on web development, React patterns, and building great user
-            experiences.
+            Place where I made something, wrote something, and shared something.
           </p>
         </div>
       </section>
@@ -177,4 +176,3 @@ export function BlogIndex() {
     </div>
   );
 }
-

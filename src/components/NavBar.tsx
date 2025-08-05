@@ -41,7 +41,7 @@ export function NavBar({ title }: { title: string }) {
           aria-label="Go back"
           onClick={() => window.history.go(-1)}
         >
-          <ChevronLeft size={20} strokeWidth={1.5} />
+          <ChevronLeft size={30} strokeWidth={1.5} />
           <div
             className={`
             absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100
@@ -80,7 +80,7 @@ export function NavBar({ title }: { title: string }) {
           aria-label="Open settings menu"
           aria-expanded={false}
         >
-          <Menu size={20} strokeWidth={1.5} />
+          <Menu size={30} strokeWidth={1.5} />
           <div
             className={`
             absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100
