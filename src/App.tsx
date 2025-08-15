@@ -9,7 +9,7 @@ import {
   Route,
   useParams,
 } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { getPostBySlug } from "./utils/posts";
 import type { Post } from "./utils/posts";
 
@@ -19,30 +19,16 @@ function PostLoader() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  useEffect(() => {
-    if (!slug) {
-      setError("No post slug provided");
+  if (!post && loading) {
+    getPostBySlug(slug || "").then((postData) => {
+      if (postData) {
+        setPost(postData);
+      } else {
+        setError("Post not found");
+      }
       setLoading(false);
-      return;
-    }
-
-    setLoading(true);
-    setError("");
-
-    getPostBySlug(slug)
-      .then((postData) => {
-        if (postData) {
-          setPost(postData);
-        } else {
-          setError("Post not found");
-        }
-        setLoading(false);
-      })
-      .catch(() => {
-        setError("Failed to load post");
-        setLoading(false);
-      });
-  }, [slug]);
+    });
+  }
 
   if (loading) {
     return (

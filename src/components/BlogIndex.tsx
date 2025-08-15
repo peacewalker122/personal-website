@@ -18,10 +18,6 @@ export function BlogIndex() {
 
   const POSTS_PER_PAGE = 6;
 
-  useEffect(() => {
-    loadPosts();
-  }, []);
-
   const loadPosts = async () => {
     try {
       const allPosts = await getAllPosts();
@@ -34,6 +30,10 @@ export function BlogIndex() {
       setLoading(false);
     }
   };
+
+  if (posts.length === 0 && loading) {
+    loadPosts();
+  }
 
   const loadMorePosts = useCallback(() => {
     if (loadingMore || !hasMore) return;
@@ -107,7 +107,7 @@ export function BlogIndex() {
                   : "var(--text-primary)",
             }}
           >
-            Welcome to My Blog
+            All Opinions Are Mine
           </h1>
           <p
             className={`

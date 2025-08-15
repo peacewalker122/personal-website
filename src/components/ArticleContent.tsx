@@ -27,7 +27,7 @@ export function ArticleContent({ article }: ArticleContentProps) {
           theme === "dark" ? "var(--bg-primary)" : "var(--bg-primary)",
       }}
     >
-      <article className="max-w-[680px] w-full mx-auto px-6 py-12">
+      <article className="max-w-[680px] mx-auto px-6 py-12">
         {/* Article Header */}
         <header className="mb-12 pb-8 border-b border-opacity-20">
           <div
