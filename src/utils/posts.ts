@@ -61,7 +61,7 @@ export async function getAllPosts(): Promise<Post[]> {
 	const posts: Post[] = [];
 
 	for (const path in modules) {
-		const resp = await fetch(path);
+		const resp = await fetch(path, { cache: "force-cache" });
 		if (!resp.ok) {
 			throw new Error(`Failed to load post at ${path}`);
 		}
@@ -83,7 +83,7 @@ export async function getAllPosts(): Promise<Post[]> {
 export async function getPostBySlug(slug: string): Promise<Post | null> {
 	try {
 		// For dynamic imports, we'll use fetch instead since Vite doesn't support variable dynamic imports
-		const response = await fetch(`/post/${slug}.md`);
+		const response = await fetch(`/post/${slug}.md`, { cache: "force-cache" });
 		if (!response.ok) {
 			return null;
 		}
@@ -98,4 +98,3 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
 		return null;
 	}
 }
-
