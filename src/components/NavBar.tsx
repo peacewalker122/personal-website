@@ -25,7 +25,7 @@ export function NavBar({ title }: { title: string }) {
             : "rgba(0, 0, 0, 0.08)",
       }}
     >
-      <div className="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="max-w-4xl mx-auto sm:px-6 sm:py-4 flex items-center justify-between">
         {/* Back Button */}
         <button
           className={`
