@@ -87,6 +87,7 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
 		if (!response.ok) {
 			return null;
 		}
+
 		const content = await response.text();
 		const metadata = getPostMetadata(slug, content);
 

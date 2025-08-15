@@ -159,16 +159,7 @@ export function BlogIndex() {
                       ? "var(--border-subtle)"
                       : "var(--border-subtle)",
                 }}
-              >
-                <p
-                  className={`
-                    text-sm pt-8
-                    ${theme === "dark" ? "text-neutral-500" : "text-neutral-500"}
-                  `}
-                >
-                  You've reached the end of the posts.
-                </p>
-              </div>
+              ></div>
             </div>
           )}
         </div>
