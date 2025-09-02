@@ -8,7 +8,7 @@ import { getAllPosts } from "../utils/posts";
 import type { Post } from "../utils/posts";
 
 export function BlogIndex() {
-  const { theme } = useTheme();
+  const { theme, settingsVisible, toggleSettings } = useTheme();
   const navigate = useNavigate();
   const [posts, setPosts] = useState<Post[]>([]);
   const [displayedPosts, setDisplayedPosts] = useState<Post[]>([]);
@@ -69,6 +69,14 @@ export function BlogIndex() {
     navigate(`/${slug}`);
   };
 
+  const handleSettingRegionClick = (e: React.MouseEvent) => {
+    console.info("Main region clicked");
+    if (settingsVisible) {
+      e.stopPropagation();
+      toggleSettings();
+    }
+  };
+
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -92,42 +100,52 @@ export function BlogIndex() {
       <NavBar title="Daniel Anugerah's Blog" />
       <SettingsPanel />
 
-      {/* Hero Section - 25% of viewport */}
-      <section className="h-[25vh] flex items-center justify-center px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1
-            className={`
+      {/* Posts Section - 65% of viewport */}
+      <main
+        className="min-h-[65vh] px-6 pb-12"
+        onClick={handleSettingRegionClick}
+        onKeyUp={(e) => {
+          console.info("Key up event:", e.key);
+          if (e.key === "Escape" && settingsVisible) {
+            toggleSettings();
+          }
+        }}
+      >
+        {/* Hero Section - 25% of viewport */}
+        <section className="h-[25vh] flex items-center justify-center px-6">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1
+              className={`
               text-4xl md:text-5xl font-serif font-bold mb-4 leading-tight
               ${theme === "dark" ? "text-neutral-100" : "text-neutral-900"}
             `}
-            style={{
-              color:
-                theme === "dark"
-                  ? "var(--text-primary)"
-                  : "var(--text-primary)",
-            }}
-          >
-            All Opinions Are Mine
-          </h1>
-          <p
-            className={`
+              style={{
+                color:
+                  theme === "dark"
+                    ? "var(--text-primary)"
+                    : "var(--text-primary)",
+              }}
+            >
+              All Opinions Are Mine
+            </h1>
+            <p
+              className={`
               text-lg md:text-xl leading-relaxed max-w-2xl mx-auto
               ${theme === "dark" ? "text-neutral-300" : "text-neutral-700"}
             `}
-            style={{
-              color:
-                theme === "dark"
-                  ? "var(--text-secondary)"
-                  : "var(--text-secondary)",
-            }}
-          >
-            Place where I made something, wrote something, and shared something.
-          </p>
-        </div>
-      </section>
+              style={{
+                color:
+                  theme === "dark"
+                    ? "var(--text-secondary)"
+                    : "var(--text-secondary)",
+              }}
+            >
+              Place where I made something, wrote something, and shared
+              something.
+            </p>
+          </div>
+        </section>
 
-      {/* Posts Section - 65% of viewport */}
-      <main className="min-h-[65vh] px-6 pb-12">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {displayedPosts.map((post) => (

@@ -14,10 +14,25 @@ interface ArticleContentProps {
 }
 
 export function ArticleContent({ article }: ArticleContentProps) {
-  const { theme, fontSize } = useTheme();
+  const { theme, fontSize, toggleSettings, settingsVisible } = useTheme();
+
+  const handleSettingRegionClick = (e: React.MouseEvent) => {
+    console.info("Main region clicked");
+    if (settingsVisible) {
+      e.stopPropagation();
+      toggleSettings();
+    }
+  };
 
   return (
     <main
+      onClick={handleSettingRegionClick}
+      onKeyUp={(e) => {
+        console.info("Key up event:", e.key);
+        if (e.key === "Escape" && settingsVisible) {
+          toggleSettings();
+        }
+      }}
       className={`
         min-h-screen transition-colors duration-300 animate-fade-in
         ${theme === "dark" ? "bg-neutral-950" : "bg-neutral-50"}

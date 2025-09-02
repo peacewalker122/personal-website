@@ -1,17 +1,17 @@
-import { ThemeProvider } from "./contexts/ThemeContext";
-import { NavBar } from "./components/NavBar";
-import { SettingsPanel } from "./components/SettingsPanel";
-import { ArticleContent } from "./components/ArticleContent";
-import { BlogIndex } from "./components/BlogIndex";
+import { useState } from "react";
 import {
+  Route,
   BrowserRouter as Router,
   Routes,
-  Route,
   useParams,
 } from "react-router-dom";
-import { useState } from "react";
-import { getPostBySlug } from "./utils/posts";
+import { ArticleContent } from "./components/ArticleContent";
+import { BlogIndex } from "./components/BlogIndex";
+import { NavBar } from "./components/NavBar";
+import { SettingsPanel } from "./components/SettingsPanel";
+import { ThemeProvider } from "./contexts/ThemeContext";
 import type { Post } from "./utils/posts";
+import { getPostBySlug } from "./utils/posts";
 
 function PostLoader() {
   const { slug } = useParams();

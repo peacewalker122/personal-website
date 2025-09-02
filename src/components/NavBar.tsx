@@ -39,6 +39,7 @@ export function NavBar({ title }: { title: string }) {
             }
           `}
           aria-label="Go back"
+          type="button"
           onClick={() => window.history.go(-1)}
         >
           <ChevronLeft size={30} strokeWidth={1.5} />
@@ -78,6 +79,7 @@ export function NavBar({ title }: { title: string }) {
             }
           `}
           aria-label="Open settings menu"
+          type="button"
           aria-expanded={false}
         >
           <Menu size={30} strokeWidth={1.5} />
