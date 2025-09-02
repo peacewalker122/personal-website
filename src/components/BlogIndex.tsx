@@ -89,7 +89,7 @@ export function BlogIndex() {
           theme === "dark" ? "var(--bg-primary)" : "var(--bg-primary)",
       }}
     >
-      <NavBar title="Personal Blog" />
+      <NavBar title="Daniel Anugerah's Blog" />
       <SettingsPanel />
 
       {/* Hero Section - 25% of viewport */}
