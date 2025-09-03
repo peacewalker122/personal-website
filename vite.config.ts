@@ -12,10 +12,15 @@ export default defineConfig({
 			targets: [
 				{
 					src: "post/*.md",
-					dest: "post",
+					dest: "post/",
+				},
+				{
+					src: "./metadata.json",
+					dest: "metadata.json",
 				},
 			],
 		}),
 	],
+	publicDir: "public",
 	assetsInclude: ["**/*.md"],
 });

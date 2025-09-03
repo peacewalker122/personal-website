@@ -5,8 +5,8 @@ interface Article {
   title: string;
   author: string;
   date: string;
-  readingTime: string;
-  content: string;
+  readingTime?: string;
+  content?: string;
 }
 
 interface ArticleContentProps {
@@ -23,6 +23,19 @@ export function ArticleContent({ article }: ArticleContentProps) {
       toggleSettings();
     }
   };
+
+  if (!article.content) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div
+          className={`text-lg ${theme === "dark" ? "text-neutral-300" : "text-neutral-700"
+            }`}
+        >
+          No content available.
+        </div>
+      </div>
+    );
+  }
 
   return (
     <main
@@ -96,7 +109,7 @@ export function ArticleContent({ article }: ArticleContentProps) {
               theme === "dark" ? "var(--text-primary)" : "var(--text-primary)",
           }}
         >
-          <MarkdownReader content={article.content} />
+          <MarkdownReader content={article.content!} />
         </div>
 
         {/* End of Article */}
