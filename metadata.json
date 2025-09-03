@@ -29,14 +29,14 @@
 			"slug": "react-patterns",
 			"title": "React Patterns",
 			"excerpt": "React continues to evolve, and with it, the patterns we use to build maintainable applications. Let's explore some of the most effective patterns for modern React development.",
-			"date": "2025-09-03",
+			"date": "2023-09-03",
 			"readingTime": "1 min"
 		},
 		{
 			"slug": "typescript-react",
 			"title": "Typescript React",
 			"excerpt": "TypeScript has become the standard for large React applications. Here are the patterns that will make your code more maintainable.",
-			"date": "2025-09-03",
+			"date": "2024-09-03",
 			"readingTime": "1 min"
 		}
 	]

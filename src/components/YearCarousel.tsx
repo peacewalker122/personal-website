@@ -2,10 +2,15 @@ import { useTheme } from "../hooks/useTheme";
 
 export interface YearCarouselProps {
   years: number[];
+  activeYear?: number | null;
   onYearSelect: (year: number) => void;
 }
 
-export function YearCarousel({ years, onYearSelect }: YearCarouselProps) {
+export function YearCarousel({
+  years,
+  onYearSelect,
+  activeYear,
+}: YearCarouselProps) {
   const { theme } = useTheme();
 
   return (
@@ -14,14 +19,11 @@ export function YearCarousel({ years, onYearSelect }: YearCarouselProps) {
         return (
           <button
             key={year}
-            onClick={() => onYearSelect(year)}
-            type="button"
-            style={{
-              color:
-                theme === "dark"
-                  ? "var(--text-primary)"
-                  : "var(--text-primary)",
+            className={`px-3 py-1 rounded ${activeYear === year ? "bg-blue-500 text-white" : theme === "dark" ? "text-gray-300 hover:bg-gray-700" : "text-gray-700 hover:bg-gray-200"} transition-colors duration-200`}
+            onClick={() => {
+              onYearSelect(year);
             }}
+            type="button"
           >
             {year}
           </button>

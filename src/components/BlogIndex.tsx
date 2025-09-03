@@ -16,15 +16,10 @@ export function BlogIndex() {
   const [loading, setLoading] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
   const [hasMore, setHasMore] = useState(true);
-
-  const currentYear = new Date().getFullYear();
+  const [yearFilter, setYearFilter] = useState<number | null>(null);
 
   const years: number[] = Array.from(
-    new Set(
-      metadata.posts
-        .map((post) => new Date(post.date).getFullYear())
-        .filter((year) => year !== currentYear),
-    ),
+    new Set(metadata.posts.map((post) => new Date(post.date).getFullYear())),
   ).sort((a, b) => b - a);
 
   const POSTS_PER_PAGE = metadata.postsPerPage;
@@ -79,6 +74,20 @@ export function BlogIndex() {
       loadMorePosts();
     }
   }, [loadMorePosts]);
+
+  useEffect(() => {
+    if (yearFilter) {
+      const filteredPosts = posts.filter((post) => {
+        const postYear = new Date(post.date).getFullYear();
+        return postYear === yearFilter;
+      });
+      setDisplayedPosts(filteredPosts.slice(0, POSTS_PER_PAGE));
+      setHasMore(filteredPosts.length > POSTS_PER_PAGE);
+    } else {
+      setDisplayedPosts(posts.slice(0, POSTS_PER_PAGE));
+      setHasMore(posts.length > POSTS_PER_PAGE);
+    }
+  }, [yearFilter, posts, POSTS_PER_PAGE]);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -168,8 +177,9 @@ export function BlogIndex() {
         <YearCarousel
           years={years}
           onYearSelect={(year) => {
-            console.info("Selected year:", year);
+            setYearFilter((prev) => (prev === year ? null : year));
           }}
+          activeYear={yearFilter}
         />
 
         <div className="max-w-6xl mx-auto">
