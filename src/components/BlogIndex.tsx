@@ -17,6 +17,16 @@ export function BlogIndex() {
   const [loadingMore, setLoadingMore] = useState(false);
   const [hasMore, setHasMore] = useState(true);
 
+  const currentYear = new Date().getFullYear();
+
+  const years: number[] = Array.from(
+    new Set(
+      metadata.posts
+        .map((post) => new Date(post.date).getFullYear())
+        .filter((year) => year !== currentYear),
+    ),
+  ).sort((a, b) => b - a);
+
   const POSTS_PER_PAGE = metadata.postsPerPage;
 
   const loadPosts = async () => {
@@ -156,7 +166,7 @@ export function BlogIndex() {
         </section>
 
         <YearCarousel
-          years={metadata.availableYears}
+          years={years}
           onYearSelect={(year) => {
             console.info("Selected year:", year);
           }}
