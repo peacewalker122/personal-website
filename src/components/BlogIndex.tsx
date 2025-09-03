@@ -4,8 +4,9 @@ import { useTheme } from "../hooks/useTheme";
 import { NavBar } from "./NavBar";
 import { SettingsPanel } from "./SettingsPanel";
 import { PostCard } from "./PostCard";
-import { getAllPosts } from "../utils/posts";
 import type { Post } from "../utils/posts";
+import { YearCarousel } from "./YearCarousel";
+import metadata from "../../metadata.json";
 
 export function BlogIndex() {
   const { theme, settingsVisible, toggleSettings } = useTheme();
@@ -16,11 +17,20 @@ export function BlogIndex() {
   const [loadingMore, setLoadingMore] = useState(false);
   const [hasMore, setHasMore] = useState(true);
 
-  const POSTS_PER_PAGE = 6;
+  const POSTS_PER_PAGE = metadata.postsPerPage;
 
   const loadPosts = async () => {
     try {
-      const allPosts = await getAllPosts();
+      const posts = metadata.posts;
+
+      // convert the metadata post into Post type
+      const allPosts: Post[] = posts.map((post) => ({
+        title: post.title,
+        date: post.date,
+        slug: post.slug,
+        excerpt: post.excerpt,
+      }));
+
       setPosts(allPosts);
       setDisplayedPosts(allPosts.slice(0, POSTS_PER_PAGE));
       setHasMore(allPosts.length > POSTS_PER_PAGE);
@@ -49,7 +59,7 @@ export function BlogIndex() {
       setHasMore(currentLength + nextPosts.length < posts.length);
       setLoadingMore(false);
     }, 500); // Simulate loading delay
-  }, [posts, displayedPosts, loadingMore, hasMore]);
+  }, [posts, displayedPosts, loadingMore, hasMore, POSTS_PER_PAGE]);
 
   const handleScroll = useCallback(() => {
     if (
@@ -97,7 +107,7 @@ export function BlogIndex() {
           theme === "dark" ? "var(--bg-primary)" : "var(--bg-primary)",
       }}
     >
-      <NavBar title="Daniel Anugerah's Blog" />
+      <NavBar title={metadata.blogTitle} />
       <SettingsPanel />
 
       {/* Posts Section - 65% of viewport */}
@@ -126,7 +136,7 @@ export function BlogIndex() {
                     : "var(--text-primary)",
               }}
             >
-              All Opinions Are Mine
+              {metadata.heroTitle}
             </h1>
             <p
               className={`
@@ -140,11 +150,17 @@ export function BlogIndex() {
                     : "var(--text-secondary)",
               }}
             >
-              Place where I made something, wrote something, and shared
-              something.
+              {metadata.heroSubtitle}
             </p>
           </div>
         </section>
+
+        <YearCarousel
+          years={metadata.availableYears}
+          onYearSelect={(year) => {
+            console.info("Selected year:", year);
+          }}
+        />
 
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -4,19 +4,29 @@ const modules = import.meta.glob("/post/*.md", {
 	import: "",
 });
 
+import metadata from "../../metadata.json";
+
 export interface Post {
 	slug: string;
 	title: string;
 	excerpt: string;
 	date: string;
-	readingTime: string;
-	content: string;
+	readingTime?: string;
+	content?: string;
 }
 
 export function getPostMetadata(
 	slug: string,
 	content: string,
 ): Omit<Post, "content"> {
+	// Check if metadata exists in metadata.json
+	const staticMetadata = metadata.posts.find((post) => post.slug === slug);
+
+	if (staticMetadata) {
+		return staticMetadata;
+	}
+
+	// Fallback to dynamic generation
 	// Convert slug to title (e.g., "hello-world" -> "Hello World")
 	const title = slug
 		.split("-")

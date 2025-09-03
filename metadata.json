@@ -1,0 +1,41 @@
+{
+	"blogTitle": "Daniel Anugerah's Blog",
+	"heroTitle": "All Opinions Are Mine",
+	"heroSubtitle": "Place where I made something, wrote something, and shared something.",
+	"availableYears": [
+		2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015
+	],
+	"postsPerPage": 6,
+	"posts": [
+		{
+			"slug": "accessible-react",
+			"title": "Accessible React",
+			"excerpt": "Accessibility should be a cornerstone of every web application. Here's how to build React apps that work for everyone.",
+			"date": "September 3, 2025"
+		},
+		{
+			"slug": "future-web-dev",
+			"title": "Future Web Dev",
+			"excerpt": "Web development is constantly evolving, with new frameworks, tools, and paradigms emerging regularly. Let's examine what the future holds.",
+			"date": "September 3, 2025"
+		},
+		{
+			"slug": "hello-world",
+			"title": "Hello World",
+			"excerpt": "This is a sample blog post written in markdown.",
+			"date": "September 3, 2025"
+		},
+		{
+			"slug": "react-patterns",
+			"title": "React Patterns",
+			"excerpt": "React continues to evolve, and with it, the patterns we use to build maintainable applications. Let's explore some of the most effective patterns for modern React development.",
+			"date": "September 3, 2025"
+		},
+		{
+			"slug": "typescript-react",
+			"title": "Typescript React",
+			"excerpt": "TypeScript has become the standard for large React applications. Here are the patterns that will make your code more maintainable.",
+			"date": "September 3, 2025"
+		}
+	]
+}

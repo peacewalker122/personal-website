@@ -14,15 +14,19 @@ export function PostCard({ post, onClick }: PostCardProps) {
       className={`
         group cursor-pointer p-6 rounded-lg border transition-all duration-300
         hover:shadow-lg hover:scale-[1.02] animate-fade-in
-        ${theme === "dark" 
-          ? "bg-neutral-900/50 border-neutral-800 hover:bg-neutral-900/80" 
+        ${theme === "dark"
+          ? "bg-neutral-900/50 border-neutral-800 hover:bg-neutral-900/80"
           : "bg-white/80 border-neutral-200 hover:bg-white"
         }
       `}
       onClick={onClick}
       style={{
-        borderColor: theme === "dark" ? "var(--border-subtle)" : "var(--border-subtle)",
-        backgroundColor: theme === "dark" ? "rgba(23, 23, 23, 0.5)" : "rgba(255, 255, 255, 0.8)",
+        borderColor:
+          theme === "dark" ? "var(--border-subtle)" : "var(--border-subtle)",
+        backgroundColor:
+          theme === "dark"
+            ? "rgba(23, 23, 23, 0.5)"
+            : "rgba(255, 255, 255, 0.8)",
       }}
     >
       <header className="mb-4">
@@ -33,7 +37,8 @@ export function PostCard({ post, onClick }: PostCardProps) {
             ${theme === "dark" ? "text-neutral-100" : "text-neutral-900"}
           `}
           style={{
-            color: theme === "dark" ? "var(--text-primary)" : "var(--text-primary)",
+            color:
+              theme === "dark" ? "var(--text-primary)" : "var(--text-primary)",
           }}
         >
           {post.title}
@@ -45,8 +50,6 @@ export function PostCard({ post, onClick }: PostCardProps) {
           `}
         >
           <time dateTime={post.date}>{post.date}</time>
-          <span className="w-1 h-1 rounded-full bg-current opacity-60" />
-          <span>{post.readingTime}</span>
         </div>
       </header>
 
@@ -56,7 +59,10 @@ export function PostCard({ post, onClick }: PostCardProps) {
           ${theme === "dark" ? "text-neutral-300" : "text-neutral-700"}
         `}
         style={{
-          color: theme === "dark" ? "var(--text-secondary)" : "var(--text-secondary)",
+          color:
+            theme === "dark"
+              ? "var(--text-secondary)"
+              : "var(--text-secondary)",
         }}
       >
         {post.excerpt}
@@ -66,7 +72,10 @@ export function PostCard({ post, onClick }: PostCardProps) {
         <div
           className="border-t"
           style={{
-            borderTopColor: theme === "dark" ? "var(--border-subtle)" : "var(--border-subtle)",
+            borderTopColor:
+              theme === "dark"
+                ? "var(--border-subtle)"
+                : "var(--border-subtle)",
           }}
         >
           <span
@@ -84,3 +93,4 @@ export function PostCard({ post, onClick }: PostCardProps) {
     </article>
   );
 }
+

@@ -34,7 +34,7 @@ export function ArticleContent({ article }: ArticleContentProps) {
         }
       }}
       className={`
-        min-h-screen transition-colors duration-300 animate-fade-in
+        min-h-screen transition-colors duration-300 animate-fade-in font-[Helvetica Neue]
         ${theme === "dark" ? "bg-neutral-950" : "bg-neutral-50"}
       `}
       style={{
@@ -77,8 +77,6 @@ export function ArticleContent({ article }: ArticleContentProps) {
             `}
             >
               <time dateTime={article.date}>{article.date}</time>
-              <span className="w-1 h-1 rounded-full bg-current opacity-60" />
-              <span>{article.readingTime}</span>
             </div>
           </div>
         </header>
