@@ -13,17 +13,31 @@ export function YearCarousel({
 }: YearCarouselProps) {
   const { theme } = useTheme();
 
+  console.log("activeYear", activeYear);
+
+  // I think this happen because of the rendering? The activeYear weren't taking effect after clicking.
+  // What's the missing point here that need to be connected.
   return (
     <div className="flex space-x-4 overflow-x-auto py-4 px-2 font-mono">
       {years.map((year) => {
+        const isActive = activeYear === year;
         return (
           <button
             key={year}
-            className={`px-3 py-1 rounded ${activeYear === year ? "bg-blue-500 text-white" : theme === "dark" ? "text-gray-300 hover:bg-gray-700" : "text-gray-700 hover:bg-gray-200"} transition-colors duration-200`}
+            className={`px-3 py-1 rounded font-medium transition-all duration-300 ease-out transform
+              ${isActive
+                ? "bg-blue-500 text-white shadow-md scale-105 border border-blue-400"
+                : theme === "dark"
+                  ? "text-gray-300 hover:bg-gray-700 hover:text-white hover:scale-102 border border-transparent hover:border-gray-600"
+                  : "text-gray-700 hover:bg-gray-200 hover:text-gray-900 hover:scale-102 border border-transparent hover:border-gray-300"
+              }
+              focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50
+              active:scale-95`}
             onClick={() => {
               onYearSelect(year);
             }}
             type="button"
+            aria-pressed={isActive}
           >
             {year}
           </button>

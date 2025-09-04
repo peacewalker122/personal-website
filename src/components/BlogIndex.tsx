@@ -98,6 +98,10 @@ export function BlogIndex() {
     navigate(`/${slug}`);
   };
 
+  const handleYearSelect = useCallback((year: number | null) => {
+    setYearFilter(year);
+  }, []);
+
   const handleSettingRegionClick = (e: React.MouseEvent) => {
     console.info("Main region clicked");
     if (settingsVisible) {
@@ -176,9 +180,7 @@ export function BlogIndex() {
 
         <YearCarousel
           years={years}
-          onYearSelect={(year) => {
-            setYearFilter((prev) => (prev === year ? null : year));
-          }}
+          onYearSelect={handleYearSelect}
           activeYear={yearFilter}
         />
 
