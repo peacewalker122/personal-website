@@ -47,7 +47,7 @@ export function ArticleContent({ article }: ArticleContentProps) {
         }
       }}
       className={`
-        min-h-screen transition-colors duration-300 animate-fade-in font-[Helvetica Neue]
+        min-h-screen transition-colors duration-300 animate-fade-in font-[Helvetica Neue] px-4 md:px-6
         ${theme === "dark" ? "bg-neutral-950" : "bg-neutral-50"}
       `}
       style={{
@@ -113,32 +113,7 @@ export function ArticleContent({ article }: ArticleContentProps) {
         </div>
 
         {/* End of Article */}
-        <footer className="mt-16 pt-8 border-t border-opacity-20">
-          <div
-            className="border-t"
-            style={{
-              borderTopColor:
-                theme === "dark"
-                  ? "var(--border-subtle)"
-                  : "var(--border-subtle)",
-            }}
-          >
-            <div
-              className={`
-              text-center text-sm pt-8
-              ${theme === "dark" ? "text-neutral-500" : "text-neutral-500"}
-            `}
-            >
-              <div className="flex items-center justify-center space-x-2">
-                <div className="w-2 h-2 rounded-full bg-current opacity-40" />
-                <span className="font-medium tracking-wide">
-                  End of article
-                </span>
-                <div className="w-2 h-2 rounded-full bg-current opacity-40" />
-              </div>
-            </div>
-          </div>
-        </footer>
+        <footer className="mt-16 pt-8 border-t border-opacity-20"></footer>
       </article>
     </main>
   );

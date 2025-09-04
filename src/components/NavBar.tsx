@@ -56,7 +56,7 @@ export function NavBar({ title }: { title: string }) {
         <div className="flex items-center space-x-3">
           <h1
             className={`
-            font-serif text-lg font-medium tracking-tight
+            font-serif text-md md:text-lg font-medium tracking-tight
             transition-colors duration-200
             ${theme === "dark" ? "text-neutral-100" : "text-neutral-900"}
           `}

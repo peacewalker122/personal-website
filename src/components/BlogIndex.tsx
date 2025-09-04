@@ -1,14 +1,14 @@
-import { useEffect, useState, useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useTheme } from "../hooks/useTheme";
-import { NavBar } from "./NavBar";
-import { SettingsPanel } from "./SettingsPanel";
-import { PostCard } from "./PostCard";
-import type { Post } from "../utils/posts";
-import { YearCarousel } from "./YearCarousel";
 import metadata from "../../metadata.json";
+import { useTheme } from "../hooks/useTheme";
+import type { Post } from "../utils/posts";
+import { NavBar } from "./NavBar";
+import { PostCard } from "./PostCard";
+import { SettingsPanel } from "./SettingsPanel";
+import { YearCarousel } from "./YearCarousel";
 
-export function BlogIndex() {
+export default function BlogIndex() {
   const { theme, settingsVisible, toggleSettings } = useTheme();
   const navigate = useNavigate();
   const [posts, setPosts] = useState<Post[]>([]);
@@ -95,7 +95,7 @@ export function BlogIndex() {
   }, [handleScroll]);
 
   const handlePostClick = (slug: string) => {
-    navigate(`/${slug}`);
+    navigate(`/post/${slug}`);
   };
 
   const handleYearSelect = (year: number | null) => {
