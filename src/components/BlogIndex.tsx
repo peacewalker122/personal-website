@@ -98,9 +98,9 @@ export function BlogIndex() {
     navigate(`/${slug}`);
   };
 
-  const handleYearSelect = useCallback((year: number | null) => {
-    setYearFilter(year);
-  }, []);
+  const handleYearSelect = (year: number | null) => {
+    setYearFilter((prev) => (prev === year ? null : year));
+  };
 
   const handleSettingRegionClick = (e: React.MouseEvent) => {
     console.info("Main region clicked");
