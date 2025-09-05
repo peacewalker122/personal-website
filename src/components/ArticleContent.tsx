@@ -17,7 +17,6 @@ export function ArticleContent({ article }: ArticleContentProps) {
   const { theme, fontSize, toggleSettings, settingsVisible } = useTheme();
 
   const handleSettingRegionClick = (e: React.MouseEvent) => {
-    console.info("Main region clicked");
     if (settingsVisible) {
       e.stopPropagation();
       toggleSettings();
@@ -41,7 +40,6 @@ export function ArticleContent({ article }: ArticleContentProps) {
     <main
       onClick={handleSettingRegionClick}
       onKeyUp={(e) => {
-        console.info("Key up event:", e.key);
         if (e.key === "Escape" && settingsVisible) {
           toggleSettings();
         }

@@ -103,7 +103,6 @@ export default function BlogIndex() {
   };
 
   const handleSettingRegionClick = (e: React.MouseEvent) => {
-    console.info("Main region clicked");
     if (settingsVisible) {
       e.stopPropagation();
       toggleSettings();
@@ -138,7 +137,6 @@ export default function BlogIndex() {
         className="min-h-[65vh] px-6 pb-12"
         onClick={handleSettingRegionClick}
         onKeyUp={(e) => {
-          console.info("Key up event:", e.key);
           if (e.key === "Escape" && settingsVisible) {
             toggleSettings();
           }
