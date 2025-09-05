@@ -62,6 +62,7 @@ export function SettingsPanel() {
               <button
                 onClick={decreaseFontSize}
                 disabled={fontSize <= 14}
+                type="button"
                 className={`
                   group relative p-2 rounded-lg
                   transition-all duration-200 ease-out
@@ -138,6 +139,7 @@ export function SettingsPanel() {
               Appearance
             </span>
             <button
+              type="button"
               onClick={toggleTheme}
               className={`
                 group flex items-center space-x-3 px-4 py-2.5 rounded-lg
@@ -175,4 +177,3 @@ export function SettingsPanel() {
     </div>
   );
 }
-
